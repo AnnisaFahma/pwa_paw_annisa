@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <!-- untuk responsive web -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <title>Live Data in SW</title>
+  <link rel="shortcut icon" href="images/favicon.png">
+  <link rel="stylesheet" href="style/main.css" />
+  <!-- script untuk fungsi-fungsi di indexed db -->
+  <script type="text/javascript" src="js/idb.js"></script>
+
+  <!-- script utama -->
+  <script type="text/javascript" src="js/main.js"></script>
+</head>
+<body>
+  <h1>Shoes</h1>
+  <button id="addProducts" onclick="idbApp.showProducts()">Show Products</button><hr><br>
+  <div id="results">
+    <!-- tampilan dari indexDB -->
+	
+  </div>
+  <!-- script untuk menjalankan service worker-->
+  <script>
+  //apakah service worker didukung oleh browser, jika iya, jalankan.
+    if ('serviceWorker' in navigator) {
+	//jika mendukung, maka akan mendaftarkan service worker.
+      navigator.serviceWorker.register('pekerja-web.js')
+	  //nama service workernya adalah pekerja-web
+        .then(function(registration) {
+          console.log('Service Worker registration successful');
+        })
+        .catch(function(err) {
+          console.log('Service Worker registration failed');
+        });
+    }
+  </script >
+</body>
+</html>
